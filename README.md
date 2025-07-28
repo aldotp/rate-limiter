@@ -87,11 +87,17 @@ make test-burst
 
 ## 📌 Design Overview
 
-### 🔄 Algorithm: Token Bucket (Implemented in Redis Lua Script)
+### ⏳ Algorithm: Fixed Window Counter with Ban (Redis Lua Script)
 
-- Each request consumes 1 token.
-- Tokens are refilled periodically according to `Window`.
-- Burst allows exceeding the rate temporarily up to a defined maximum.
+- Each client is allowed a maximum of `limit` requests per `window` seconds.
+- If the number of requests exceeds the limit, the client is **banned** for `ban_duration` seconds.
+- While banned, all incoming requests are immediately rejected.
+- The counter resets after each window, effectively "refilling" the quota.
+
+#### Returned Values:
+- `{1, remaining}`: Request accepted. `remaining` indicates how many more requests are allowed in the current window.
+- `{0, ban_duration}`: Request rejected due to rate limit. Ban has just been activated.
+- `{-1, ttl}`: Request rejected because the client is currently banned. `ttl` is the remaining ban time.
 
 ### 🧠 Decisions
 
