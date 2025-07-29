@@ -1,6 +1,6 @@
 # Redis Rate Limiter
 
-A high-performance rate limiter written in Go using Redis and Lua scripting. This project demonstrates how to implement token bucket-based rate limiting for APIs with burst handling, per-client configuration, and both API key/IP-based identification.
+This project is a high-performance rate limiter written in Go using Redis and Lua scripting, implementing the Fixed Window Counter algorithm.
 
 ---
 
