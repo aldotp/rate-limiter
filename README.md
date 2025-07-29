@@ -8,12 +8,12 @@ This project is a high-performance rate limiter written in Go using Redis and Lu
 
 ### 🔧 Runtime Dependencies
 
-| Dependency | Version | Description                                                         |
-| ---------- | ------- | ------------------------------------------------------------------- |
-| Go         | ≥ 1.24  | Required for local development and testing                          |
-| Redis      | ≥ 6.0   | Required for storing token bucket state and executing Lua scripts   |
-| Docker     | ≥ 20.10 | (Optional) Used for containerized setup                             |
-| Make       | any     | (Optional) For running helper tasks like tests and load simulations |
+| Dependency | Version | Description                                                          |
+| ---------- | ------- | -------------------------------------------------------------------- |
+| Go         | ≥ 1.24  | Required for local development and testing                           |
+| Redis      | ≥ 6.0   | Required for storing fixed window counters and executing Lua scripts |
+| Docker     | ≥ 20.10 | (Optional) Used for containerized setup                              |
+| Make       | any     | (Optional) For running helper tasks like tests and load simulations  |
 
 > 📌 Redis must be running at the address defined in `.env` (`REDIS_ADDR`, default: `localhost:6379`).
 
@@ -44,6 +44,8 @@ docker-compose up
 # Stop the application
 docker-compose down
 ```
+
+> 📌 If running unit test using docker compose, make sure set `REDIS_ADDR` to `redis:6379`.
 
 ### Option 2: Manual Setup
 
