@@ -21,7 +21,7 @@ This project is a high-performance rate limiter written in Go using Redis and Lu
 
 ## 🛠 Features
 
-- ✅ Token Bucket Algorithm implemented in Redis Lua Script (atomic)
+- ✅ Fixed Window Counter algorithm implemented in Redis Lua Script (atomic)
 - ✅ Supports custom limits per API key or IP address
 - ✅ Burst traffic handling
 - ✅ Simple HTTP server demonstration
