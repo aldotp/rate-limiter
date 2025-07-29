@@ -45,7 +45,7 @@ docker-compose up
 docker-compose down
 ```
 
-> 📌 If running unit test using docker compose, make sure set `REDIS_ADDR` to `redis:6379`.
+> 📌 If running unit test using docker compose, make sure set `REDIS_ADDR` to `localhost:6379`.
 
 ### Option 2: Manual Setup
 
