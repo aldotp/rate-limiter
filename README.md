@@ -107,8 +107,8 @@ make test-burst
 
 ### 🧪 Unit Testing
 
-- 3 requests allowed (limit 3).
-- 4th request blocked.
+- 100 requests allowed (limit 100).
+- 101th request blocked.
 - After waiting >5s, token refilled, request allowed again.
 
 ---
